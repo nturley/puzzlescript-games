@@ -1,0 +1,122 @@
+title Digging through the Dirt
+author Neil and William Turley
+homepage www.puzzlescript.net
+
+========
+OBJECTS
+========
+
+Background
+black
+00000
+00000
+00000
+00000
+00000
+
+
+Target
+black orange brown
+00100
+01110
+01110
+01110
+00200
+
+Wall
+RED DARKBROWN
+00010
+11111
+01000
+11111
+00010
+
+Player
+yellow black blue orange 
+11011
+03330
+11311
+11211
+12121
+
+Dirt
+brown darkbrown
+10010
+01000
+10010
+00100
+10001
+
+Rock
+black gray darkgray
+02220
+22122
+21112
+22122
+02220
+
+=======
+LEGEND
+=======
+
+. = Background
+# = Wall
+P = Player
+O = Target
+D = Dirt
+R = Rock
+
+Object = Player or Wall or Dirt or Rock or Target
+
+=======
+SOUNDS
+=======
+
+================
+COLLISIONLAYERS
+================
+
+Background
+Wall, Rock, Dirt, Player
+Target
+======
+RULES     
+======
+
+
+[ > Player | Dirt ] -> [ > Player | ]
+[ > Player | Rock | no Object] -> [ > Player |> Rock|  ]
+late random down [ Rock | no Object ] -> [ | Rock ] again
+late random down [ Target | no Object ] -> [ | Target ] again
+==============
+WINCONDITIONS
+==============
+
+All Player on Target
+
+=======     
+LEVELS
+=======
+
+#############
+#.R...R.RRR##
+#DD.###.#RD##
+#.#ODRR##DR##
+#.R###D##RDR#
+#.RDDDD#P#RR#
+#.DRRR.#DRDD#
+#..RRRRRDDDR#
+#############
+
+######
+#OR.##
+#RRRD#
+#PDD##
+######
+
+#########
+#PRD#OR##
+#DRDD#D##
+#DD#DR.##
+#####D..#
+#########
